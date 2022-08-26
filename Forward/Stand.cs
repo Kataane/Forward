@@ -18,7 +18,7 @@ public class Stand
 
     public void Start(CancellationToken token = default)
     {
-        if (!token.CanBeCanceled) token = new CancellationTokenSource(1).Token;
+        if (!token.CanBeCanceled) token = new CancellationTokenSource(60000).Token;
 
         if (engine.Temperature >= Overheat)
             Throw($"Стартовая температура {engine.Temperature} двигателя превышает температуру перегрева {Overheat}");
