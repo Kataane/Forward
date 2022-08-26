@@ -4,5 +4,5 @@ public interface IEngine
 {
     public double Temperature { get; }
 
-    public double CurrentTemperature();
+    public void UpdateTemperature();
 }

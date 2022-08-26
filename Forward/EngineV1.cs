@@ -71,7 +71,7 @@ public class EngineV1 : IEngine
         rotateSpeed += Acceleration;
     }
 
-    public double CurrentTemperature()
+    public void UpdateTemperature()
     {
         rotateSpeed += Acceleration;
 
@@ -82,8 +82,6 @@ public class EngineV1 : IEngine
 
         Temperature += Heat();
         Temperature += Cool();
-
-        return Temperature;
     }
     
     private void Interpolation()

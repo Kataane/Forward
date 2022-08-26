@@ -24,13 +24,15 @@ public class Stand
             Throw($"Стартовая температура {engine.Temperature} двигателя превышает температуру перегрева {Overheat}");
 
         var watch = Stopwatch.StartNew();
-        var delta = Overheat - engine.CurrentTemperature();
+        engine.UpdateTemperature();
+        var delta = Overheat - engine.Temperature;
 
         while (delta > 0)
         {
             if (token.IsCancellationRequested) 
                 break;
-            delta = Overheat - engine.CurrentTemperature();
+            engine.UpdateTemperature();
+            delta = Overheat - engine.Temperature;
         }
 
         watch.Stop();
